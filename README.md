@@ -1,28 +1,8 @@
-This repo contains the following basic setup for a React project. 
-Like Create-React-Apps, it allows you to scaffold a React project with only the dependencies listed in `package.json` by running one command.
-CSS loader and Style loader are not included because I like using css-in-js for styling. Feel free to customise for your own purpose.
+This project uses [My Anime List](https://www.kaggle.com/azathoth42/myanimelist/version/9) data to investigate the effect of caching in reducing the pressure to the database.
 
-- Webpack 4
-- Babel 7
-- Eslint (Airbnb style)
-- Jest
-
-# Usage
-
-## Setup the script
-
-1. Clone this template repo to local machine
-1. Create an alias on the shells config file e.g. `~/.bash_profile` or `~/.zshrc`
-
-```
-alias create-react='bash {PATH_TO_REPO}/create-react-template.sh'
-```
-
-3. Restart terminal
-
-## Create a new React repo
-
-4. Create a new project folder on your desired path
-5. `cd` inside the new project folder
-6. Run `create-react new-project "Project Title"`
-   Substitude `new-project` with your npm project name and `Project Title` with the desired title on index.html
+## Set up Docker Database Image
+1. Download the [My Anime List](https://www.kaggle.com/azathoth42/myanimelist/version/9) csv file
+1. `docker pull postgres`
+1. `docker run --name cacheDB -p 9999:5432 -d postgres:latest` 
+1. Check the connection on `postgres@localhost:9999/postgres` 
+1. Import the csv file to the docker container
